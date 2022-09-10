@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import GenreList from "./GenreList";
 
 function NewMovie({ onAddMovie }) {
 

@@ -48,7 +48,7 @@ function App() {
   return (
     <div>
       <h1> Hello from App!</h1>
-      <NewMovie onAddMovie={handleAddMovie} />
+      <NewMovie genres={genres.name} onAddMovie={handleAddMovie} />
       <Search search={search} onSearchChange={setSearch} />
       <MovieList
         movies={displayedMovies}
