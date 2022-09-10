@@ -1,8 +1,16 @@
 import React from "react";
 
-function Search() {
+function Search({ search, onSearchChange }) {
     return (
-        <h1>Search!</h1>
+        <nav>
+            <input
+                type="text"
+                name="search"
+                placeholder="Search..."
+                value={search}
+                onChange={e => onSearchChange(e.target.value)}
+            />
+        </nav>
     )
 }
 
