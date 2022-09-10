@@ -18,7 +18,7 @@ function App() {
     fetch("http://localhost:9292/genres")
       .then((r) => r.json())
       .then((genres) => setGenres(genres))
-  })
+  }, [])
 
   function handleAddMovie(newMovie) {
     setMovies([...movies, newMovie]);
@@ -48,7 +48,7 @@ function App() {
   return (
     <div>
       <h1> Hello from App!</h1>
-      <NewMovie genres={genres.name} onAddMovie={handleAddMovie} />
+      <NewMovie genres={genres} onAddMovie={handleAddMovie} />
       <Search search={search} onSearchChange={setSearch} />
       <MovieList
         movies={displayedMovies}

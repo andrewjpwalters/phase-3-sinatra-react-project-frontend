@@ -1,8 +1,8 @@
 import React from "react";
 
-function GenreList() {
+function GenreList({ name }) {
     return (
-        <></>
+        <option>{name}</option>
     )
 }
 

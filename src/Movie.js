@@ -5,7 +5,7 @@ function Movie({ id, name, genre, year, comment, onMovieDelete, onUpdateMovie })
     const [isEditing, setIsEditing] = useState(false);
 
     function handleDeleteMovie() {
-        fetch(`http://localhost:9292/messages/${id}`, {
+        fetch(`http://localhost:9292/movies/${id}`, {
             method: "DELETE",
         });
         onMovieDelete(id)

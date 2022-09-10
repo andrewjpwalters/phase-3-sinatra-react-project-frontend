@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GenreList from "./GenreList";
 
-function NewMovie({ onAddMovie }) {
+function NewMovie({ genres, onAddMovie }) {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -44,6 +44,13 @@ function NewMovie({ onAddMovie }) {
         })
     }
 
+    const genreData = genres.map((genreObj) => {
+        return <GenreList
+            key={genreObj.id}
+            name={genreObj.name}
+        />
+    })
+
     return (
         <>
             <h1>Hello from New Movie!</h1>
@@ -60,7 +67,7 @@ function NewMovie({ onAddMovie }) {
                     value={formData.genre}
                     onChange={handleChange}
                 >
-                    {/* {genreData} */}
+                    {genreData}
                 </select>
                 <input
                     type="text"

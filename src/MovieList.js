@@ -9,9 +9,11 @@ function MovieList({ movies, onMovieDelete, onUpdateMovie }) {
                 {movies.map((movie) => (
                     <Movie
                         key={movie.id}
+                        id={movie.id}
                         name={movie.name}
                         genre={movie.genre}
                         year={movie.year}
+                        comment={movie.comment}
                         onMovieDelete={onMovieDelete}
                         onUpdateMovie={onUpdateMovie}
                     />
