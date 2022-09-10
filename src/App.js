@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import NewMovie from "./NewMovie";
 import MovieList from "./MovieList";
 import Search from "./Search";
+import FilterByGenre from "./FilterByGenre";
+import NewGenre from "./NewGenre";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -22,6 +24,10 @@ function App() {
 
   function handleAddMovie(newMovie) {
     setMovies([...movies, newMovie]);
+  };
+
+  function handleAddGenre(newGenre) {
+    setGenres([...genres, newGenre]);
   };
 
   function handleDeleteMovie(id) {
@@ -48,6 +54,7 @@ function App() {
   return (
     <div>
       <h1> Hello from App!</h1>
+      <NewGenre onAddGenre={handleAddGenre} />
       <NewMovie genres={genres} onAddMovie={handleAddMovie} />
       <Search search={search} onSearchChange={setSearch} />
       <MovieList
