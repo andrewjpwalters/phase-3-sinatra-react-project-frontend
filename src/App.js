@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import NewMovie from "./NewMovie";
 import MovieList from "./MovieList";
 import Search from "./Search";
@@ -44,7 +44,7 @@ function App() {
       <Search search={search} onSearchChange={setSearch} />
       <MovieList
         movies={displayedMovies}
-        onMessageDelete={handleDeleteMovie}
+        onMovieDelete={handleDeleteMovie}
         onUpdateMovie={handleUpdateMovie}
       />
     </div>
