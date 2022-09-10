@@ -6,6 +6,7 @@ function FilterByGenre({ genres, onFilterChange }) {
     const genreData = genres.map((genreObj) => {
         return <GenreList
             key={genreObj.id}
+            value={genreObj.id}
             name={genreObj.name}
         />
     })
@@ -15,7 +16,6 @@ function FilterByGenre({ genres, onFilterChange }) {
         <nav>
             <select
                 id="genre"
-                value={genreData.name}
                 onChange={e => onFilterChange(e.target.value)}
             >
                 <option>Choose a Genre</option>

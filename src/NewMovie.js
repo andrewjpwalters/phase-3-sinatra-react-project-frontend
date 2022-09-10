@@ -5,7 +5,7 @@ function NewMovie({ genres, onAddMovie }) {
 
     const [formData, setFormData] = useState({
         name: "",
-        genre: "",
+        genre_id: "",
         year: "",
         comment: ""
     })
@@ -24,7 +24,7 @@ function NewMovie({ genres, onAddMovie }) {
                 onAddMovie(data);
                 setFormData({
                     name: "",
-                    genre: "",
+                    genre_id: "",
                     year: "",
                     comment: ""
                 })
@@ -47,6 +47,7 @@ function NewMovie({ genres, onAddMovie }) {
     const genreData = genres.map((genreObj) => {
         return <GenreList
             key={genreObj.id}
+            id={genreObj.id}
             name={genreObj.name}
         />
     })
@@ -63,10 +64,11 @@ function NewMovie({ genres, onAddMovie }) {
                     placeholder="title"
                 />
                 <select
-                    id="genre"
-                    value={formData.genre}
+                    id="genre_id"
+                    value={formData.genre_id}
                     onChange={handleChange}
                 >
+                    <option value="null">Choose a Genre</option>
                     {genreData}
                 </select>
                 <input

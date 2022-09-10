@@ -11,7 +11,7 @@ function MovieList({ movies, onMovieDelete, onUpdateMovie }) {
                         key={movie.id}
                         id={movie.id}
                         name={movie.name}
-                        genre={movie.genre}
+                        genre={movie.genre.name}
                         year={movie.year}
                         comment={movie.comment}
                         onMovieDelete={onMovieDelete}

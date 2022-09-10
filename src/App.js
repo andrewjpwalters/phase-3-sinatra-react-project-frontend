@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import NewMovie from "./NewMovie";
 import MovieList from "./MovieList";
-import Search from "./Search";
 import FilterByGenre from "./FilterByGenre";
 import NewGenre from "./NewGenre";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([])
-  const [search, setSearch] = useState("");
-  const [filterGenre, setFilterGenre] = useState("")
+  const [filterGenre, setFilterGenre] = useState("Choose a Genre")
 
   useEffect(() => {
     fetch("http://localhost:9292/movies")
@@ -47,9 +45,8 @@ function App() {
     setMovies(updatedMovies)
   };
 
-
-  const displayedMovies = movies.filter((movie) =>
-    movie.genre_id === filterGenre || movie.name.toLowerCase().includes(search.toLowerCase())
+  const filteredMovies = movies.filter((movie) =>
+    movie.genre.name === filterGenre
   )
 
   return (
@@ -58,10 +55,10 @@ function App() {
       <NewGenre onAddGenre={handleAddGenre} />
       <NewMovie genres={genres} onAddMovie={handleAddMovie} />
       <h3>Filter Results</h3>
-      <Search search={search} onSearchChange={setSearch} />
       <FilterByGenre genres={genres} onFilterChange={setFilterGenre} />
       <MovieList
-        movies={displayedMovies}
+        movies={filterGenre === "Choose a Genre" ? movies : filteredMovies}
+        // movies={movies}
         onMovieDelete={handleDeleteMovie}
         onUpdateMovie={handleUpdateMovie}
       />

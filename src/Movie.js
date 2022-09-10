@@ -18,9 +18,9 @@ function Movie({ id, name, genre, year, comment, onMovieDelete, onUpdateMovie })
 
     return (
         <li>
-            <span>{name}</span>
-            <span>{genre}</span>
-            <span>{year}</span>
+            <p>{name}</p>
+            <p>{genre}</p>
+            <p>{year}</p>
             {isEditing ? (
                 <EditMovieComment
                     id={id}
