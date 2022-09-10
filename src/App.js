@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import NewMovie from "./NewMovie";
 import MovieList from "./MovieList";
+import Search from "./Search";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -40,6 +41,7 @@ function App() {
     <div>
       <h1> Hello from App!</h1>
       <NewMovie onAddMovie={handleAddMovie} />
+      <Search search={search} onSearchChange={setSearch} />
       <MovieList
         movies={displayedMovies}
         onMessageDelete={handleDeleteMovie}
