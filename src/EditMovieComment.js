@@ -1,10 +1,32 @@
 import React, { useState } from "react";
 
-function EditMovieComment() {
+function EditMovieComment({ id, comment, onUpdateMovie }) {
+    const [commentBody, setCommentBody] = useState(comment)
+
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        fetch(`http://localhost:9292/movies/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                comment: commentBody,
+            }),
+        })
+            .then((r) => r.json())
+            .then((updatedMovie) => onUpdateMovie(updatedMovie))
+    }
 
     return (
-        <form>
-
+        <form onSubmit={handleFormSubmit}>
+            <input
+                type="text"
+                name="comment"
+                value={commentBody}
+                onChange={(e) => setCommentBody(e.target.value)}
+            />
+            <input type="submit" value="Save" />
         </form>
     )
 }
