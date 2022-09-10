@@ -5,6 +5,7 @@ import Search from "./Search";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([])
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -12,6 +13,12 @@ function App() {
       .then((r) => r.json())
       .then((movies) => setMovies(movies))
   }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/genres")
+      .then((r) => r.json())
+      .then((genres) => setGenres(genres))
+  })
 
   function handleAddMovie(newMovie) {
     setMovies([...movies, newMovie]);
@@ -32,6 +39,7 @@ function App() {
     })
     setMovies(updatedMovies)
   };
+
 
   const displayedMovies = movies.filter((movie) =>
     movie.name.toLowerCase().includes(search.toLowerCase())
