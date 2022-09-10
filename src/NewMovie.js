@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewMovie() {
+function NewMovie({ onAddMovie }) {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -20,6 +20,13 @@ function NewMovie() {
         })
             .then(response => response.json())
             .then(data => {
+                onAddMovie(data);
+                setFormData({
+                    name: "",
+                    genre: "",
+                    year: "",
+                    comment: ""
+                })
                 console.log("Success", data);
             })
             .catch((error) => {
