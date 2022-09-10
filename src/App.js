@@ -9,6 +9,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([])
   const [search, setSearch] = useState("");
+  const [filterGenre, setFilterGenre] = useState("")
 
   useEffect(() => {
     fetch("http://localhost:9292/movies")
@@ -48,7 +49,7 @@ function App() {
 
 
   const displayedMovies = movies.filter((movie) =>
-    movie.name.toLowerCase().includes(search.toLowerCase())
+    movie.genre_id === filterGenre || movie.name.toLowerCase().includes(search.toLowerCase())
   )
 
   return (
@@ -56,7 +57,9 @@ function App() {
       <h1> Hello from App!</h1>
       <NewGenre onAddGenre={handleAddGenre} />
       <NewMovie genres={genres} onAddMovie={handleAddMovie} />
+      <h3>Filter Results</h3>
       <Search search={search} onSearchChange={setSearch} />
+      <FilterByGenre genres={genres} onFilterChange={setFilterGenre} />
       <MovieList
         movies={displayedMovies}
         onMovieDelete={handleDeleteMovie}
