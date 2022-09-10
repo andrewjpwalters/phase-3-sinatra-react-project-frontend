@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import EditMovieComment from "./EditMovieComment";
 
 function Movie({ name, genre, year, comment, onMovieDelete, onUpdateMovie }) {
     return (
