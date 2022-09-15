@@ -3,6 +3,7 @@ import NewMovie from "./NewMovie";
 import MovieList from "./MovieList";
 import FilterByGenre from "./FilterByGenre";
 import NewGenre from "./NewGenre";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
