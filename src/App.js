@@ -3,7 +3,7 @@ import NewMovie from "./NewMovie";
 import MovieList from "./MovieList";
 import FilterByGenre from "./FilterByGenre";
 import NewGenre from "./NewGenre";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap'
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -51,19 +51,17 @@ function App() {
   )
 
   return (
-    <div>
-      <h1> Hello from App!</h1>
+    <Container>
+      <h1 className="text-center mb-3">My Movie List</h1>
       <NewGenre onAddGenre={handleAddGenre} />
       <NewMovie genres={genres} onAddMovie={handleAddMovie} />
-      <h3>Filter Results</h3>
       <FilterByGenre genres={genres} onFilterChange={setFilterGenre} />
       <MovieList
         movies={filterGenre === "Choose a Genre" ? movies : filteredMovies}
-        // movies={movies}
         onMovieDelete={handleDeleteMovie}
         onUpdateMovie={handleUpdateMovie}
       />
-    </div>
+    </Container>
   );
 }
 

@@ -20,13 +20,16 @@ function EditMovieComment({ id, comment, onUpdateMovie }) {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <input
-                type="text"
-                name="comment"
-                value={commentBody}
-                onChange={(e) => setCommentBody(e.target.value)}
-            />
-            <input type="submit" value="Save" />
+            <div className="form-group">
+                <input
+                    type="text"
+                    className="form-control mb-1"
+                    name="comment"
+                    value={commentBody}
+                    onChange={(e) => setCommentBody(e.target.value)}
+                />
+                <button className="text-center btn btn-outline-dark mb-1" type="submit" value="Save">Save</button>
+            </div>
         </form>
     )
 }

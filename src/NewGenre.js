@@ -39,16 +39,19 @@ function NewGenre({ onAddGenre }) {
 
     return (
         <>
-            <h1>Hello from New Genre!</h1>
+            <h3>Create a New Genre:</h3>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="new genre"
-                />
-                <input type="submit" value="Submit" />
+                <div className="form-group">
+                    <input
+                        type="text"
+                        id="name"
+                        className="form-control mb-1"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Add A New Genre"
+                    />
+                    <button className="btn btn-outline-dark" type="submit" value="Submit">Submit</button>
+                </div>
             </form>
         </>
     )

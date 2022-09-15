@@ -13,15 +13,19 @@ function FilterByGenre({ genres, onFilterChange }) {
 
 
     return (
-        <nav>
-            <select
-                id="genre"
-                onChange={e => onFilterChange(e.target.value)}
-            >
-                <option>Choose a Genre</option>
-                {genreData}
-            </select>
-        </nav>
+        <div className="mt-4">
+            <h3>Filter Movies by Genre</h3>
+            <form>
+                <select
+                    id="genre"
+                    className="form-control"
+                    onChange={e => onFilterChange(e.target.value)}
+                >
+                    <option>Choose a Genre</option>
+                    {genreData}
+                </select>
+            </form>
+        </div>
     )
 }
 

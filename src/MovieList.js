@@ -3,9 +3,9 @@ import Movie from "./Movie";
 
 function MovieList({ movies, onMovieDelete, onUpdateMovie }) {
     return (
-        <>
-            <h1>Hello from Movie List!</h1>
-            <ul>
+        <div className="mt-4">
+            <h3>Movie List</h3>
+            <div>
                 {movies.map((movie) => (
                     <Movie
                         key={movie.id}
@@ -18,8 +18,8 @@ function MovieList({ movies, onMovieDelete, onUpdateMovie }) {
                         onUpdateMovie={onUpdateMovie}
                     />
                 ))}
-            </ul>
-        </>
+            </div>
+        </div>
     )
 }
 

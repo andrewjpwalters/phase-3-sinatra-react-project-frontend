@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GenreList from "./GenreList";
 
+
 function NewMovie({ genres, onAddMovie }) {
 
     const [formData, setFormData] = useState({
@@ -53,41 +54,57 @@ function NewMovie({ genres, onAddMovie }) {
     })
 
     return (
-        <>
-            <h1>Hello from New Movie!</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="title"
-                />
-                <select
-                    id="genre_id"
-                    value={formData.genre_id}
-                    onChange={handleChange}
-                >
-                    <option value="null">Choose a Genre</option>
-                    {genreData}
-                </select>
-                <input
-                    type="text"
-                    id="year"
-                    value={formData.year}
-                    onChange={handleChange}
-                    placeholder="year"
-                />
-                <input
-                    type="text"
-                    id="comment"
-                    value={formData.comment}
-                    onChange={handleChange}
-                    placeholder="comment"
-                />
-                <input type="submit" value="Submit" />
+        <div className="mt-4">
+            <h3>Add a New Movie</h3>
+            <form onSubmit={handleSubmit} className="row gy-2 gx-3 align-items-center">
+                <div className="form-group gap-2">
+                    <div className="col-auto">
+                        <input
+                            type="text"
+                            id="name"
+                            className="form-control mb-1"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Title"
+                        />
+                    </div>
+                    <div className="col-auto">
+                        <select
+                            id="genre_id"
+                            className="form-select mb-1"
+                            value={formData.genre_id}
+                            onChange={handleChange}
+                        >
+                            <option value="null">Choose a Genre</option>
+                            {genreData}
+                        </select>
+                    </div>
+                    <div className="col-auto">
+                        <input
+                            type="text"
+                            id="year"
+                            className="form-control mb-1"
+                            value={formData.year}
+                            onChange={handleChange}
+                            placeholder="Year"
+                        />
+                    </div>
+                    <div className="col-auto">
+                        <input
+                            type="text"
+                            id="comment"
+                            className="form-control mb-1"
+                            value={formData.comment}
+                            onChange={handleChange}
+                            placeholder="Write a Comment..."
+                        />
+                    </div>
+                    <div className="col-auto">
+                        <input className="btn btn-outline-dark" type="submit" value="Submit" />
+                    </div>
+                </div>
             </form>
-        </>
+        </div>
     )
 }
 

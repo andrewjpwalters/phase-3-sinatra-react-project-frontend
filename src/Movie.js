@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EditMovieComment from "./EditMovieComment";
+import { Card, Button } from 'react-bootstrap';
 
 function Movie({ id, name, genre, year, comment, onMovieDelete, onUpdateMovie }) {
     const [isEditing, setIsEditing] = useState(false);
@@ -17,10 +18,10 @@ function Movie({ id, name, genre, year, comment, onMovieDelete, onUpdateMovie })
     }
 
     return (
-        <li>
-            <p>{name}</p>
-            <p>{genre}</p>
-            <p>{year}</p>
+        <Card className="text-center my-2 p-2" style={{ width: '18rem' }}>
+            <Card.Title>{name}</Card.Title>
+            <Card.Subtitle className="mb-1">{genre}</Card.Subtitle>
+            <Card.Subtitle className='mb-2'>{year}</Card.Subtitle>
             {isEditing ? (
                 <EditMovieComment
                     id={id}
@@ -28,11 +29,11 @@ function Movie({ id, name, genre, year, comment, onMovieDelete, onUpdateMovie })
                     onUpdateMovie={handleUpdateComment}
                 />
             ) : (
-                <p>{comment}</p>
+                <Card.Text>{comment}</Card.Text>
             )}
-            <button onClick={() => setIsEditing((isEditing) => !isEditing)}>Edit Comment</button>
-            <button onClick={handleDeleteMovie}>Delete Movie</button>
-        </li>
+            <Button className="mb-1" variant="outline-dark" onClick={() => setIsEditing((isEditing) => !isEditing)}>Edit Comment</Button>
+            <Button variant="outline-dark" onClick={handleDeleteMovie}>Delete Movie</Button>
+        </Card>
     )
 }
 
